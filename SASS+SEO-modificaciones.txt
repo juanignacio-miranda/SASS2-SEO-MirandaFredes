@@ -1,0 +1,3 @@
+. Agregué etiquetas meta “keywords” y “description” en index.html y logisitica-y-distribucion.html.
+. Sumé @extend a etiqueta “p” de la clase “header”.
+. Intenté sumar @mixins a etiqueta “buttom” pero no resultó.

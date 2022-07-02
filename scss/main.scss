@@ -2,3 +2,13 @@
     margin: 0;
     padding: 0;
 }
+
+//SECCIONES
+@import './secciones/index'; 
+//VARIABLES
+@import './variables/extend';
+@import './variables/mixins';
+
+
+
+// extend es con el signo % , las demas variables con signo $

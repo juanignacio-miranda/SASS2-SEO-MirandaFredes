@@ -1,0 +1,267 @@
+.grilla {
+    display: grid;
+    grid-template-columns: 1.5fr 1.5fr 2.5fr 1fr;
+    grid-template-areas:
+      "nav header header header"
+      "nav primeraSeccion primeraSeccion aside"
+      "nav segundaSeccion segundaSeccion aside"
+      "nav form form aside"
+      "footer footer footer footer";
+    background-color: #d2934b;
+    color: black;
+  
+    .nav {
+      grid-area: nav;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .logoDesktop {
+      width: 13rem;
+      /* translateY --> eje vertical. TranslateX --> eje horizontal */
+    }
+  
+    .nav ul {
+      margin-top: 40px;
+      width: 100%;
+    }
+    .nav li {
+      list-style: none;
+      padding: 20px;
+      text-align: center;
+      animation-name: cambioColor;
+      animation-duration: 5s;
+      animation-iteration-count: infinite;
+      /* se puede poner una cantidad de veces especifica para que se repita, tan solo con numeros */
+    }
+    
+    .nav li:hover {
+      background-color: rgb(214, 214, 84);
+    }
+    
+    .nav a {
+      color: rgb(8, 7, 7);
+      text-decoration: none;
+    }
+    
+    /*Header*/
+    
+    .header {
+      grid-area: header;
+      background-color: #e9d45d;
+      color: black;
+      min-height: 15vh;
+      text-align: start;
+      padding: 15px 10px 15px 125px;
+      /* to bottom (hacia abajo); to top (hacia arriba) --> Eje vertical */
+      /* to right (derecha); to left (derecha) --> Eje horizontal */
+      /* medicion de grados con DEG --> ej.- 45deg */
+      /* pag. de gradiente --> cssgradient.io */
+      background-image: linear-gradient(to bottom, rgb(255, 132, 0), rgb(207, 242, 66));
+    }
+    
+    .header h1 {
+      margin: 1rem;
+    }
+    
+    .header p {
+        @extend %estiloParrafo
+    }
+    
+    /*Primera seccion*/
+    
+    .primeraSeccion {
+      grid-area: primeraSeccion;
+      margin: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .primeraSeccion h2 {
+      font-size: 2rem;
+    }
+    
+    .primeraSeccion p {
+      max-width: 550px;
+      text-align: center;
+      margin: 1rem;
+    }
+    
+    .primeraSeccion button {
+      padding: 0.5rem;
+      margin: 1rem;
+      /* transform: tranlasteY (-10px) */
+      transform: scale(2);
+      /* valores de 0 a 1 achica; de 1 en adelante agranda */
+      transform: skew(-25deg);
+      /* skewY; skewX y negativo o positivo */
+      
+    }
+    
+    .primeraSeccion button:hover {
+      transition: .2s;
+      transform: scale(2.2);
+    }
+    
+    /*Segunda sección*/
+    
+    .segundaSeccion {
+      grid-area: segundaSeccion;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      align-content: center;
+    }
+    
+    .segundaSeccion h3 {
+      font-size: 1.5rem;
+      text-align: center;
+    }
+    
+    .segundaSeccion div {
+      display: flex;
+      justify-content: space-evenly;
+      margin-top: 1rem;
+    }
+    
+    .segundaSeccion img {
+      max-width: 350px;
+      margin-top: 1rem;
+      /* rotate-->transform: rotate(45deg); rotateX, rotateY y rotateZ */
+    }
+    
+    
+    .segundaSeccion p {
+      max-width: 350px;
+      text-align: center;
+    }
+    
+    .aside {
+      grid-area: aside;
+    }
+    
+    .asideh3 {
+      width: 155px;
+      height: 130px;
+      margin: 42px 50px 0px -10px
+    }
+    
+    .footer {
+      grid-area: footer;
+    }
+    
+    .footer div {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-around;
+      margin-top: 75px;
+    }
+    
+    .footer i {
+      font-size: 4rem;
+      color: #d43f12;
+    
+    }
+    
+    .footer i:hover {
+      color: rgb(250, 15, 15);
+    }
+    
+    @keyframes cambioColor {
+      0% {
+        background-color: #e47756;
+      }
+    
+      25% {
+        background-color: #e9d45d;
+      }
+    
+      50% {
+        background-color: #d2934b;
+      }
+    
+      75% {
+        background-color: greenyellow;
+      }
+    }
+    
+    @keyframes girando {
+      0% {
+        transform: rotate(0deg);
+        transition: .5s;
+      }
+    
+      25% {
+        transform: rotate(90deg);
+        transition: .5s;
+      }
+    
+      50% {
+        transform: rotate(180deg)
+      }
+    
+      75% {
+        transform: rotate(270deg);
+        transition: .5s;
+      }
+    
+      100% {
+        transform: rotate(360deg);
+        transition: .5s;
+      }
+    
+    }
+}
+
+  
+/*RESPONSIVE DESING - MEDIA QUERY - MOBILE LAST*/
+/*MOBILE LAST = MAX-WIDTH*/
+@media (max-width: 768px) {
+    .grilla {
+      grid-template-areas:
+        "nav nav nav nav"
+        "header header header header"
+        "primeraSeccion primeraSeccion primeraSeccion aside"
+        "segundaSeccion segundaSeccion segundaSeccion aside"
+        "form form form aside"
+        "footer footer footer footer";
+        .nav {
+            flex-direction: row;
+          }
+        
+          .nav ul {
+            display: flex;
+            justify-content: flex-end;
+            flex-wrap: wrap;
+        
+          }
+        
+          .segundaSeccion img {
+            width: 200px;
+          }
+    }
+  
+    
+  }
+  
+  /*DISPOSITIVO CHICOS // SM */
+  
+  @media (max-width:375px) {
+    .grilla{
+        .nav {
+            flex-direction: column;
+          }
+        
+          .nav li {
+            padding: 5px;
+          }
+        
+          .segundaSeccion img {
+            display: none;
+          }
+    }
+
+  }
+  

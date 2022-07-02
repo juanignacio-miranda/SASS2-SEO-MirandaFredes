@@ -1,0 +1,5 @@
+@mixin btn-MarcasArgentinas($colorFondo, $colorLetra){
+    padding: 1rem;
+    background-color: $colorFondo;
+    color: $colorLetra;
+}

@@ -1,3 +1,167 @@
+@charset "UTF-8";
 * {
   margin: 0;
   padding: 0; }
+
+.grilla {
+  display: grid;
+  grid-template-columns: 1.5fr 1.5fr 2.5fr 1fr;
+  grid-template-areas: "nav header header header" "nav primeraSeccion primeraSeccion aside" "nav segundaSeccion segundaSeccion aside" "nav form form aside" "footer footer footer footer";
+  background-color: #d2934b;
+  color: black;
+  /*Header*/
+  /*Primera seccion*/
+  /*Segunda sección*/ }
+  .grilla .nav {
+    grid-area: nav;
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+  .grilla .logoDesktop {
+    width: 13rem;
+    /* translateY --> eje vertical. TranslateX --> eje horizontal */ }
+  .grilla .nav ul {
+    margin-top: 40px;
+    width: 100%; }
+  .grilla .nav li {
+    list-style: none;
+    padding: 20px;
+    text-align: center;
+    animation-name: cambioColor;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    /* se puede poner una cantidad de veces especifica para que se repita, tan solo con numeros */ }
+  .grilla .nav li:hover {
+    background-color: #d6d654; }
+  .grilla .nav a {
+    color: #080707;
+    text-decoration: none; }
+  .grilla .header {
+    grid-area: header;
+    background-color: #e9d45d;
+    color: black;
+    min-height: 15vh;
+    text-align: start;
+    padding: 15px 10px 15px 125px;
+    /* to bottom (hacia abajo); to top (hacia arriba) --> Eje vertical */
+    /* to right (derecha); to left (derecha) --> Eje horizontal */
+    /* medicion de grados con DEG --> ej.- 45deg */
+    /* pag. de gradiente --> cssgradient.io */
+    background-image: linear-gradient(to bottom, #ff8400, #cff242); }
+  .grilla .header h1 {
+    margin: 1rem; }
+  .grilla .primeraSeccion {
+    grid-area: primeraSeccion;
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+  .grilla .primeraSeccion h2 {
+    font-size: 2rem; }
+  .grilla .primeraSeccion p {
+    max-width: 550px;
+    text-align: center;
+    margin: 1rem; }
+  .grilla .primeraSeccion button {
+    padding: 0.5rem;
+    margin: 1rem;
+    /* transform: tranlasteY (-10px) */
+    transform: scale(2);
+    /* valores de 0 a 1 achica; de 1 en adelante agranda */
+    transform: skew(-25deg);
+    /* skewY; skewX y negativo o positivo */ }
+  .grilla .primeraSeccion button:hover {
+    transition: .2s;
+    transform: scale(2.2); }
+  .grilla .segundaSeccion {
+    grid-area: segundaSeccion;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center; }
+  .grilla .segundaSeccion h3 {
+    font-size: 1.5rem;
+    text-align: center; }
+  .grilla .segundaSeccion div {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 1rem; }
+  .grilla .segundaSeccion img {
+    max-width: 350px;
+    margin-top: 1rem;
+    /* rotate-->transform: rotate(45deg); rotateX, rotateY y rotateZ */ }
+  .grilla .segundaSeccion p {
+    max-width: 350px;
+    text-align: center; }
+  .grilla .aside {
+    grid-area: aside; }
+  .grilla .asideh3 {
+    width: 155px;
+    height: 130px;
+    margin: 42px 50px 0px -10px; }
+  .grilla .footer {
+    grid-area: footer; }
+  .grilla .footer div {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    margin-top: 75px; }
+  .grilla .footer i {
+    font-size: 4rem;
+    color: #d43f12; }
+  .grilla .footer i:hover {
+    color: #fa0f0f; }
+
+@keyframes cambioColor {
+  0% {
+    background-color: #e47756; }
+  25% {
+    background-color: #e9d45d; }
+  50% {
+    background-color: #d2934b; }
+  75% {
+    background-color: greenyellow; } }
+
+@keyframes girando {
+  0% {
+    transform: rotate(0deg);
+    transition: .5s; }
+  25% {
+    transform: rotate(90deg);
+    transition: .5s; }
+  50% {
+    transform: rotate(180deg); }
+  75% {
+    transform: rotate(270deg);
+    transition: .5s; }
+  100% {
+    transform: rotate(360deg);
+    transition: .5s; } }
+
+/*RESPONSIVE DESING - MEDIA QUERY - MOBILE LAST*/
+/*MOBILE LAST = MAX-WIDTH*/
+@media (max-width: 768px) {
+  .grilla {
+    grid-template-areas: "nav nav nav nav" "header header header header" "primeraSeccion primeraSeccion primeraSeccion aside" "segundaSeccion segundaSeccion segundaSeccion aside" "form form form aside" "footer footer footer footer"; }
+    .grilla .nav {
+      flex-direction: row; }
+    .grilla .nav ul {
+      display: flex;
+      justify-content: flex-end;
+      flex-wrap: wrap; }
+    .grilla .segundaSeccion img {
+      width: 200px; } }
+
+/*DISPOSITIVO CHICOS // SM */
+@media (max-width: 375px) {
+  .grilla .nav {
+    flex-direction: column; }
+  .grilla .nav li {
+    padding: 5px; }
+  .grilla .segundaSeccion img {
+    display: none; } }
+
+.grilla .header p {
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 22px; }
